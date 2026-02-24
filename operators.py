@@ -41,7 +41,7 @@ False
 True
 False
 True
-'''
+
 
 #logical operators 
 a = True
@@ -54,3 +54,4 @@ print('not a:', not a )  # Logical NOT
 False
 True
 False
+'''
