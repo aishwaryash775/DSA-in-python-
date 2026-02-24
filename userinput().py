@@ -1,20 +1,21 @@
 #taking input from user
+
 '''
 # The input() function is used to take input from the user in Python. It reads a line of text from the user and returns it as a string. You can also provide a prompt message to guide the user on what to enter.
 name = input("Enter your name: ")
 print("Hello, " + name + "! Welcome to Python programming.")
 #output:
 "
-Enter your name: aishwarya premraj chavan  
+Enter your name : aishwarya premraj chavan  
 Hello, aishwarya premraj chavan ! Welcome to Python programming.
 
-age = input("Enter your age: ")
+age = input("Enter your age:")
 print("You are " + age + " years old.")
 #output
 Enter your age: 23
 You are 23 years old.
 
-'''
+
 # lets create real  world calculators
 
 a = int(input("Enter first number: "))
@@ -41,7 +42,7 @@ if b != 0:
 else:
     print("Error: Division by zero is not allowed.")
 
-
+    
 # enter marks of 5 subjects and calculate the percentage
 english_marks = int(input("Enter your English marks: "))
 math_marks = int(input("Enter your Math marks: "))
@@ -52,3 +53,5 @@ total_marks = english_marks + math_marks + science_marks + social_studies_marks 
 percentage = (total_marks / 500) * 100
 print("Your total marks are: " + str(total_marks))
 print("Your percentage is: " + str(percentage) + "%")
+
+'''
