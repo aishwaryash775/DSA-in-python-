@@ -1,0 +1,12 @@
+q))Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.
+
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        n = len(nums)
+        start = 1
+        for i in range(2,n):
+            if nums[i]!=nums[start-1]:
+                start+=1
+                nums[start]=nums[i]
+        return start + 1
