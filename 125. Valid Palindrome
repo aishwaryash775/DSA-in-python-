@@ -1,0 +1,37 @@
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.
+Example 1:
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+Example 2:
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+
+///code/////
+class Solution:
+    def isAphanumeric(self,s):
+      x = ord(s)
+      if 97<=x<=127 or 65<=x<=90 or 48<=x<=57:
+        return True
+      return False
+    def isPalindrome(self, s: str) -> bool:
+        s = s.lower()
+        i = 0
+        j = len(s)-1
+
+        while i<j:
+            if not self.isAphanumeric(s[i]):
+                i+=1
+            elif not self.isAphanumeric(s[j]):
+                j-=1
+            elif s[i]==s[j]:
+                i+=1
+                j-=1
+            else:
+                return False
+        return True
+    
+
