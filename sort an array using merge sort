@@ -1,16 +1,39 @@
 Given an array of integers nums, sort the array in ascending order and return it.
 
 You must solve the problem without using any built-in functions in O(nlog(n)) time complexity and with the smallest space complexity possible.
-def bubbleSort(arr):
+class Solution:
 
-    n = len(arr)
+    def sortArray(self, nums):        # main function that sorts the array
+        
+        if len(nums) <= 1:            # base case: if array has 0 or 1 element
+            return nums               # it is already sorted
+        
+        mid = len(nums) // 2          # find middle index of array
+        
+        left = self.sortArray(nums[:mid])   # recursively sort left half
+        right = self.sortArray(nums[mid:])  # recursively sort right half
+        
+        return self.merge(left, right)      # merge both sorted halves
 
-    for i in range(n):
 
-        for j in range(0, n-i-1):
+    def merge(self, left, right):     # function to merge two sorted arrays
+        
+        result = []                   # final merged sorted array
+        i = 0                         # pointer for left array
+        j = 0                         # pointer for right array
 
-            if arr[j] > arr[j+1]:
+        # compare elements from both arrays
+        while i < len(left) and j < len(right):
 
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+            if left[i] < right[j]:    # if left element is smaller
+                result.append(left[i]) # add it to result
+                i += 1                # move left pointer
 
-    return arr
+            else:
+                result.append(right[j]) # add right element
+                j += 1                # move right pointer
+
+        result += left[i:]            # add remaining elements from left
+        result += right[j:]           # add remaining elements from right
+
+        return result                 # return merged sorted array
