@@ -1,0 +1,32 @@
+Given an array of integers nums, sort the array in ascending order and return it.
+
+You must solve the problem without using any built-in functions in O(nlog(n)) time complexity and with the smallest space complexity possible.
+\]///code////
+class Solution:
+    #using quick sort 
+    def partition(self,nums,l,r):
+        key = nums[r]
+        start = l
+        for i in range(l,r+1):
+            if nums[i]<=key:
+                temp = nums[i]
+                nums[i] = nums[start]
+                nums[start] = temp  
+                start+=1
+
+        return start-1
+
+    def quickSort(self,nums,l,r):
+        #base case
+        if l>=r:
+            return  
+        p = self.partition(nums,l,r)
+        
+        self.quickSort(nums,l,p-1)
+        self.quickSort(nums,p+1,r)
+    
+    def sortArray(self, nums: List[int])->List[int]:
+        n = len(nums)
+        self.quickSort(nums,0,n-1)
+
+        return nums
