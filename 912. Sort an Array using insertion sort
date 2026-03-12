@@ -1,0 +1,17 @@
+Given an array of integers nums, sort the array in ascending order and return it.
+You must solve the problem without using any built-in functions in O(nlog(n)) time complexity and with the smallest space complexity possible.
+Input: nums = [5,2,3,1]
+Output: [1,2,3,5]
+/////code////
+lass Solution:
+    def sortArray(nums):
+        n = len(nums)
+# using insertion sort
+        for i in range(1,n):
+            key = nums[i]
+            j = i-1
+            while j>=0 and nums[j]>=key:
+                nums[j+1]=nums[j]
+                j-=1
+            nums[j+1]=key
+        return nums
